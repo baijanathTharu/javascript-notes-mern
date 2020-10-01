@@ -90,31 +90,55 @@ console.log("performing non blocking tasks...");
 ### Example:
 
 ```js
-// Task Part::>>
-function editPhoto(rawPhoto, callback) {
-  console.log("Uploading ", rawPhoto, "...");
-  // emulating asynchronous behavior
+/* Task Part */
+function uploadPhoto(photoName, callBack) {
+  console.log("Uploading ", photoName, "...");
   setTimeout(function () {
-    // error or success
-    callback(null, "Success");
+    callBack(null, "Upload Successful.");
   }, 2000);
 }
-// !Task Part::>>
 
-// Execution Part::>>CASE: ERROR OCCURS
-console.log("I want to edit photo.");
-editPhoto("profile.png", function (error, done) {
-  console.log("Result of editPhoto::>>");
-  if (error) {
-    console.log("Uploading failed!");
-    console.log("Editing: ", error);
+function editPhoto(photoName, callBack) {
+  console.log("Editing ", photoName, "...");
+  setTimeout(function () {
+    callBack(null, "Editing Successful.");
+  }, 2000);
+}
+
+function downloadPhoto(photoName, callBack) {
+  console.log("Downloading ", photoName, "...");
+  setTimeout(function () {
+    // callBack(null, 'Downloading Successful');
+    callBack("Downloading failed.", null);
+  }, 2000);
+}
+
+/* Task Part end */
+
+/* Execution Part */
+console.log("Photo Editing Web App");
+uploadPhoto("myProfile.png", function (err, done) {
+  if (err) {
+    console.log("Error: ", err);
   } else {
-    console.log("Uploaded successfully!");
-    console.log("Editing: ", done);
+    console.log("Complete: ", done);
+    editPhoto("myProfile.png", function (err, done) {
+      if (err) {
+        console.log("Error: ", err);
+      } else {
+        console.log("Complete: ", done);
+        downloadPhoto("myProfile.png", function (err, done) {
+          if (err) {
+            console.log("Error: ", err);
+          } else {
+            console.log("Complete: ", done);
+          }
+        });
+      }
+    });
   }
 });
-// performing some non blocking tasks
-console.log("Shoot another photo.");
-console.log("Watch youtube videos.");
-// !Execution Part::>>
+
+console.log("Performing some non blocking tasks");
+/* Execution Part end */
 ```
