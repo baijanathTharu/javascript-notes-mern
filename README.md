@@ -13,3 +13,5 @@
 ## 6. [Closures](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/CLOSURES.md)
 
 ## 7. [Callbacks](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/CALLBACK.md)
+
+## 8. [Promises](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/PROMISE.md)
