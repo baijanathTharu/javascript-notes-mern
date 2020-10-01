@@ -33,7 +33,7 @@
 - Callback is a function which is passed as an argument to another function.
 - Callbacks are used for handling the result of asynchronous call.
 
-### Example:
+### Example 1:
 
 ```js
 // here uploadVideo is a Higher order function.
@@ -54,6 +54,31 @@ uploadVideo("react-video.mp4", function () {
 // Non blocking tasks can be performed.
 console.log("Shoot another video.");
 console.log("Have your lunch.");
+```
+
+### Example 2:
+
+```js
+function verifyUser(user, callBack) {
+  console.log(user, " wants to log in.");
+  console.log("Sending OTP...");
+  setTimeout(function () {
+    // callBack('OTP incorrect', null);
+    callBack(null, "successfully");
+  }, 2000);
+}
+
+verifyUser("Ram", function (err, done) {
+  if (err) {
+    console.log("Error: ", err);
+    console.log("Please enter the OTP correctly.");
+  } else {
+    console.log("You are logged in ", done);
+    console.log("Now you can upload files.");
+  }
+});
+
+console.log("performing non blocking tasks...");
 ```
 
 ## Bigger picture of Callback. (error or success)
