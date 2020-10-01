@@ -4,7 +4,7 @@
 
 ## 2. [Datatypes](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/DATATYPE.md)
 
-## 3. [Functions](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/Function.md)
+## 3. [Functions](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/FUNCTION.md)
 
 ## 4. [Scopes](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/SCOPES.md)
 
