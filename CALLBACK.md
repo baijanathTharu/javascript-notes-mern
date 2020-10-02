@@ -87,7 +87,7 @@ console.log("performing non blocking tasks...");
 
 * In the example below, we try to handle the result of _editPhoto_.
 
-### Example:
+### Example 1:
 
 ```js
 /* Task Part */
@@ -141,4 +141,60 @@ uploadPhoto("myProfile.png", function (err, done) {
 
 console.log("Performing some non blocking tasks");
 /* Execution Part end */
+```
+### Example2: Important
+```js
+// tasks
+// take photo first
+// edit photo
+// upload photo
+
+function takePhoto(photo, callback) {
+  setTimeout(function(){
+    callback(null, 'Photo Taken successfully...');
+  }, 2000)
+}
+
+function editPhoto(photo, callback){
+  setTimeout(function(){
+    // callback(null, 'Photo edited successfully...');
+    callback('Editing is failed', null);
+  }, 200);
+}
+
+function uploadPhoto(photo, callback) {
+  setTimeout(function() {
+    callback(null, 'Photo uploaded successfully...');
+  }, 2000);
+}
+
+
+// Executions
+console.log('Take a photo before editing...');
+
+takePhoto('profile.png', function(err, done) {
+  if(err) {
+    console.log('Error: ',err);
+  } else {
+    console.log('Result: ', done);
+    // edit photo now
+    editPhoto('profile.png', function(err, done) {
+      if(err) {
+        console.log('Error: ', err);
+      } else {
+        console.log('Result: ', done);
+        // now upload the photo
+        uploadPhoto('profile.png', function(err, done) {
+          if(err) {
+            console.lgo('Error: ',err);
+          } else {
+            console.log('Result: ', done);
+          }
+        })
+      } 
+    })
+  }
+})
+
+console.log('Performing some non blocking tasks...');
 ```
