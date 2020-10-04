@@ -168,3 +168,57 @@ takePhoto()
 
 console.log("Performing some non blocking taks....");
 ```
+
+- **Example3: Nested Promises(Better way)**
+
+```js
+var takePhoto = function () {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("Photo taken successfully...");
+    }, 2000);
+  });
+};
+
+var editPhoto = function () {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("Photo edited successfully...");
+    }, 2000);
+  });
+};
+
+var uploadPhoto = function () {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      // resolve('Photo uploaded successfully...');
+      reject("Error while uploading...");
+    }, 2000);
+  });
+};
+
+// Execution
+// first take photo
+console.log("Take photo before editing...");
+
+takePhoto()
+  .then(function (data) {
+    console.log("Take data:> ", data);
+    return editPhoto();
+  })
+  .then(function (data) {
+    console.log("EDit data:> ", data);
+    return uploadPhoto();
+  })
+  .then(function (data) {
+    console.log("Uplodad data:> ", data);
+  })
+  .catch(function (err) {
+    console.log("Error:>> ", err);
+  })
+  .finally(function () {
+    console.log("Promise for photo is settled.");
+  });
+
+console.log("Performing some non blocking taks....");
+```
