@@ -15,3 +15,7 @@
 ## 7. [Callbacks](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/CALLBACK.md)
 
 ## 8. [Promises](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/PROMISE.md)
+
+## 9. [Mutation](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/MUTATION.md)
+
+## 10. [Inbuilt Methods](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/INBUILTMETHODS.md)
