@@ -199,4 +199,4 @@ console.log("string representation>>", serilizedObj);
 console.log("deserilized >>", JSON.parse(serilizedObj));
 ```
 
-- JSON.stringify and JSON.parse always cames in pair
+- JSON.stringify and JSON.parse always comes in pair

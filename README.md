@@ -21,3 +21,5 @@
 ## 10. [Inbuilt Methods](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/INBUILTMETHODS.md)
 
 ## 11. [Array Methods](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/ARRAYMETHODS.md)
+
+## 12. [Prototypes in JavaScript](https://github.com/baijanathTharu/javascript-notes-mern/blob/master/PROTOTYPE.md)
