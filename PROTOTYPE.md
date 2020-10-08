@@ -83,9 +83,7 @@ var shyam = new Student();
 - Declaring a functional constructor called Books
 
 ```js
-function Books {
-
-}
+function Books() {}
 ```
 
 - Anything added with this keyword inside the functional constructor is added to the constructor
